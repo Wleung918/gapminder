@@ -1,0 +1,76 @@
+---
+title: "gapminder"
+author: "Wilson Leung"
+date: "23/03/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+# tinytex::install_tinytex()
+# install.packages("tidyverse")
+# install.packages("gapminder")
+library(gapminder)
+library(tidyverse)
+
+library(dplyr)
+
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+## Introduction 
+
+In this document we will be exploring the Gapminder dataset 
+
+
+## Observations of gapminder
+
+
+### Countries with life expectancy less than 30 
+```{r Step 12}
+gapminder %>% filter(lifeExp<30)
+
+
+```
+
+### Key observations
+
+* The observation is from 1952 and 1992 for Afghanistan and Rwanda respectively
+* There is only 2 observations
+
+
+### Countries with life expectancy greater than 81
+
+```{r Step 13}
+
+gapminder %>% filter(lifeExp>81)
+
+
+```
+
+
+
+### Life expectancy by continent in 2007
+
+
+```{r Boxplot}
+
+gapminder_2007<-gapminder%>%  filter(year==2007)
+
+boxplot(gapminder_2007$lifeExp ~gapminder_2007$continent)
+
+```
+
+
+#### Key Observations
+
+* African life expectancies are quite varied but the median is the lowest across all continents
+* Oceania has the least varied life expectancy
+
+
+
+---
+
+
